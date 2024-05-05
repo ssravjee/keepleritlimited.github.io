@@ -53,3 +53,15 @@ footer {
         font-size: 24px;
     }
 }
+
+/* CSS for responsive image container */
+.image-container {
+    display: flex;
+    justify-content: center;
+}
+
+/* CSS for responsive images */
+.image-container img {
+    max-width: 100%;
+    height: auto;
+}
