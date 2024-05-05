@@ -870,12 +870,12 @@
 			var templateParams = {
 				from_name: name,
 				from_email: email,
-				to_name: 'Your Name', // Change this to recipient's name if needed
+				to_name: 'Keepler IT Limited', // Change this to recipient's name if needed
 				project: project,
 				message_html: message
 			};
 		
-			emailjs.send('service_nhsu5xr', 'template_seh42oj', templateParams)
+			emailjs.send("service_nhsu5xr", "template_seh42oj", templateParams)
 				.then(function(response) {
 					alert('Email sent successfully!');
 				}, function(error) {
