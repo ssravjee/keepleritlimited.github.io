@@ -734,6 +734,7 @@
 								<iframe class="rounded w-100 h-100" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2524.595616745393!2d-1.8217513229310038!3d50.74598867165013!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48739f2b744d7a7d%3A0xab1251e65965b948!2sEverdene%20House%2C%20Deansleigh%20Rd%2C%20Bournemouth%20BH7%207DU%2C%20UK!5e0!3m2!1sen!2sbd!4v1714933328405!5m2!1sen!2sbd" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                             </div>
                         </div>
+                        <!-- 
                         <div class="col-lg-6 wow fadeIn" data-wow-delay=".5s">
                             <div class="p-5 rounded contact-form">
                                 <div class="mb-4">
@@ -753,6 +754,28 @@
                                 </div>
                             </div>
                         </div>
+                        -->
+						<!-- FORM START TAG -->
+						<div class="col-lg-6 wow fadeIn" data-wow-delay=".5s">
+								<div class="p-5 rounded contact-form">
+									<div class="mb-4">
+										<input type="text" id="nameInput" class="form-control border-0 py-3" placeholder="Your Name">
+									</div>
+									<div class="mb-4">
+										<input type="email" id="emailInput" class="form-control border-0 py-3" placeholder="Your Email">
+									</div>
+									<div class="mb-4">
+										<input type="text" id="projectInput" class="form-control border-0 py-3" placeholder="Project">
+									</div>
+									<div class="mb-4">
+										<textarea id="messageInput" class="w-100 form-control border-0 py-3" rows="6" placeholder="Message"></textarea>
+									</div>
+									<div class="text-start">
+										<button id="sendMessageBtn" class="btn bg-primary text-white py-3 px-5" type="button" onclick="sendEmail()">Send Message</button>
+									</div>
+								</div>
+							</div>
+					    <!-- FORM END TAG -->
                     </div>
                 </div>
             </div> 
@@ -831,6 +854,36 @@
         <script src="lib/easing/easing.min.js"></script>
         <script src="lib/waypoints/waypoints.min.js"></script>
         <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+        <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+		<script>
+		   (function(){
+			  emailjs.init("service_nhsu5xr"); // Replace YOUR_USER_ID with your EmailJS user ID
+		   })();
+		</script>
+		<script>
+		function sendEmail() {
+			var name = document.getElementById('nameInput').value;
+			var email = document.getElementById('emailInput').value;
+			var project = document.getElementById('projectInput').value;
+			var message = document.getElementById('messageInput').value;
+		
+			var templateParams = {
+				from_name: name,
+				from_email: email,
+				to_name: 'Your Name', // Change this to recipient's name if needed
+				project: project,
+				message_html: message
+			};
+		
+			emailjs.send('service_nhsu5xr', 'template_seh42oj', templateParams)
+				.then(function(response) {
+					alert('Email sent successfully!');
+				}, function(error) {
+					alert('Error sending email. Please try again later.');
+				});
+		}
+		</script>
+
 
         <!-- Template Javascript -->
         <script src="js/main.js"></script>
